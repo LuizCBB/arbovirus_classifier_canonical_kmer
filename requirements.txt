@@ -1,7 +1,6 @@
 tqdm
 streamlit
 screed
-pickle
 pandas
 time
 biopython
