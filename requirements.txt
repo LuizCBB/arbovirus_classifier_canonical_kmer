@@ -2,7 +2,6 @@ tqdm
 streamlit
 screed
 pandas
-time
 biopython
 numpy
 itertools
