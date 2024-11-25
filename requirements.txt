@@ -4,5 +4,4 @@ screed
 pandas
 biopython
 numpy
-itertools
 scikit-learn
