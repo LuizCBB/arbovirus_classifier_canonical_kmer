@@ -3,7 +3,6 @@ streamlit
 screed
 scipy
 pandas
-mmh3
 time
 biopython
 numpy
