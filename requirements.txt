@@ -7,3 +7,4 @@ time
 biopython
 numpy
 itertools
+scikit-learn
