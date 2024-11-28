@@ -58,7 +58,7 @@ labels_model = ['Dengue 2', 'Dengue 1', 'Yellow fever', 'Dengue 4',
  'Sindbis', 'Chikungunya', 'Saint_Louis encephalitis', 'Usutu',
  'Rift Valley fever', 'Mayaro', 'Oropouche', 'La Crosse', 'Zika',
  'West Nile', 'Dengue 3', 'Japanese encephalitis', 'Western equine encephalitis',
- 'non-arbovirus', 'Venezuelan equine encephalomyelitis', 'Eastern equine encephalitis'] 
+ 'Non-arbovirus', 'Venezuelan equine encephalomyelitis', 'Eastern equine encephalitis'] 
  
 st.markdown("""
     <style>
@@ -93,7 +93,7 @@ ex = st.button("Use an example")
 cl = st.button("Clear")
 
 if br:
-    progress_text = "Processando ... "
+    progress_text = "Processing ... "
     print(progress_text)
     
     start_time = time.time()
