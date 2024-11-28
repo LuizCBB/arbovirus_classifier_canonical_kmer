@@ -54,11 +54,11 @@ with open("best_model_MLP_k6.pkl", 'rb') as f:
     model = pickle.load(f)
 f.close()
 
-labels_model = ['Dengue2_1000.fas', 'Dengue1_1000.fas', 'Yellow_fever_1000.fas', 'Dengue4_1000.fas',
- 'Sindbis_672.fas', 'Chikungunya_1000.fas', 'Saint_Louis_encephalitis_313.fas', 'Usutu_virus_1000.fas',
- 'Rift_Valley_fever_1000.fas', 'Mayaro_176.fas', 'Oropouche_1000.fas', 'La_Crosse_358.fas', 'Zika_1000.fas',
- 'West_Nile_1000.fas', 'Dengue3_1000.fas', 'Japanese_encephalitis_1000.fas', 'Western_equine_encephalitis_176.fas',
- 'ASV_1000.fas', 'Venezuelan_equine_encephalomyelitis_540.fas', 'Eastern_equine_encephalitis_1000.fas'] 
+labels_model = ['Dengue 2', 'Dengue 1', 'Yellow fever', 'Dengue 4',
+ 'Sindbis', 'Chikungunya', 'Saint_Louis encephalitis', 'Usutu',
+ 'Rift Valley fever', 'Mayaro', 'Oropouche', 'La Crosse', 'Zika',
+ 'West Nile', 'Dengue 3', 'Japanese encephalitis', 'Western equine encephalitis',
+ 'non-arbovirus', 'Venezuelan equine encephalomyelitis', 'Eastern equine encephalitis'] 
  
 st.markdown("""
     <style>
@@ -73,22 +73,24 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True) 
  
-st.header('Classificador de genomas de arbovirus')
-st.markdown("""<p>Esta aplicação permite a submissão de sequências nucleotídicas a partir de genomas de virus e sua classificação em 
-DENV, ZIKV, YFV, CHIKV, JEV, LACV, MAYV, OROV, RVFV, SLEV, SINV, USUV, WNV, WEEV, EEEV ou AST.</p>""", unsafe_allow_html=True) 
+st.header('Arbovirus genome classifier')
+st.markdown("""<p>This application allows the submission of nucleotide sequences from virus genomes and their classification into 
+Dengue (DENV), Zika (ZIKV), Yellow Fever (YFV), Chikungunya (CHIKV), Japanese encephalitis (JEV), La Crosse (LACV), Mayaro (MAYV), Oropouche (OROV),
+Rift Valley fever (RVF), Saint Louis encephalitis (SLEV), Sindbis (SINV), Usutu (USUV), West Nile (WNV), Western equine encephalitis (WEEV),
+Eastern equine encephalitis (EEEV), Venezuelan equine encephalomyelitis (VEE) or non-arbovirus.</p>""", unsafe_allow_html=True) 
 
 
 if "sequences" not in st.session_state:
     st.session_state["sequences"] = ""
 
-sequences_area = st.text_area("Cole sua sequência em formato FASTA ou use o exemplo", value = st.session_state["sequences"], height = 300)
+sequences_area = st.text_area("Paste your sequence in FASTA format or use the example", value = st.session_state["sequences"], height = 300)
     
 query_sequences = []
 query_labels = []
 
-br = st.button("Executar", type="primary")
-ex = st.button("Use um exemplo")
-cl = st.button("Limpar")
+br = st.button("Perform", type="primary")
+ex = st.button("Use an example")
+cl = st.button("Clear")
 
 if br:
     progress_text = "Processando ... "
@@ -134,10 +136,10 @@ if br:
     hours, rem = divmod(elapsed_time, 3600)
     minutes, seconds = divmod(rem, 60)
 
-    st.write(f"Tempo de execução: {int(hours)} horas, {int(minutes)} minutos, {int(seconds)} segundos")
+    st.write(f"Runtime: {int(hours)} hours, {int(minutes)} minutes, {int(seconds)} seconds")
     
             
-    d = {'Nome da sequência de consulta': query_name, 'Classe predita': predicted_class }
+    d = {'Query name': query_name, 'Predicted class': predicted_class }
     df = pd.DataFrame(data=d,index=None)
             
     st.table(df)
