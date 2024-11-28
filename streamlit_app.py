@@ -77,7 +77,7 @@ st.header('Arbovirus genome classifier')
 st.markdown("""<p>This application allows the submission of nucleotide sequences from virus genomes and their classification into 
 Dengue (DENV), Zika (ZIKV), Yellow Fever (YFV), Chikungunya (CHIKV), Japanese encephalitis (JEV), La Crosse (LACV), Mayaro (MAYV), Oropouche (OROV),
 Rift Valley fever (RVF), Saint Louis encephalitis (SLEV), Sindbis (SINV), Usutu (USUV), West Nile (WNV), Western equine encephalitis (WEEV),
-Eastern equine encephalitis (EEEV), Venezuelan equine encephalomyelitis (VEE).</p>""", unsafe_allow_html=True) 
+Eastern equine encephalitis (EEEV) or Venezuelan equine encephalomyelitis (VEE).</p>""", unsafe_allow_html=True) 
 
 
 if "sequences" not in st.session_state:
